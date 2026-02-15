@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashby Circle Desert Oasis | Direct Coast to Coast Stays</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --desert-sand: #E8D5C4;
+            --desert-terra: #D4855A;
+            --desert-sage: #8B9C7C;
+            --desert-sky: #5B9AAF;
+            --palm-green: #4A6B52;
+            --sunset: #E67E50;
+            --midnight: #1A1A1A;
+            --cream: #FFF8F0;
+            --shadow: rgba(212, 133, 90, 0.2);
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--cream);
+            color: var(--midnight);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.97);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--desert-terra);
+            animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--desert-terra);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--midnight);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--sunset);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu a:hover {
+            color: var(--desert-terra);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .btn-book-header {
+            background: var(--desert-terra);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+            text-decoration: none;
+        }
+
+        .btn-book-header:hover {
+            background: var(--sunset);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 2rem;
+        }
+
+        .property-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--palm-green);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+        }
+
+        .property-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            line-height: 0.95;
+            color: var(--midnight);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .property-header .location {
+            font-size: 1.5rem;
+            color: var(--desert-terra);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .property-header p {
+            font-size: 1.2rem;
+            color: #4A4A4A;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .property-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--desert-terra);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 350px);
+            gap: 1rem;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.95);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1);
+        }
+
+        /* Details Grid */
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .amenities-box, .rules-box {
+            background: white;
+            padding: 3rem;
+            border: 2px solid var(--desert-sand);
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .amenities-box h2, .rules-box h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            color: var(--midnight);
+        }
+
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .amenity-icon {
+            font-size: 1.5rem;
+            color: var(--desert-terra);
+        }
+
+        .amenity-text {
+            font-weight: 500;
+        }
+
+        .rules-box ul {
+            list-style: none;
+        }
+
+        .rules-box li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--desert-sand);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rules-box li:last-child {
+            border-bottom: none;
+        }
+
+        .rules-box li::before {
+            content: '→';
+            color: var(--desert-terra);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Book Now Section */
+        .book-section {
+            background: linear-gradient(135deg, var(--desert-terra) 0%, var(--sunset) 100%);
+            padding: 6rem 3rem;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .book-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/></svg>');
+            opacity: 0.5;
+        }
+
+        .book-section-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .book-section p {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .btn-book-main {
+            background: white;
+            color: var(--midnight);
+            padding: 1.5rem 4rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-book-main:hover {
+            background: var(--midnight);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            color: white;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--midnight);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .property-header h1 {
+                font-size: 3rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 300px);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .details-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .amenities-list {
+                grid-template-columns: 1fr;
+            }
+
+            .property-stats {
+                gap: 2rem;
+            }
+
+            .book-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .book-section {
+                padding: 4rem 2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Direct Coast to Coast</a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="rentals.html">Our Rentals</a>
+                <a href="index.html#why-choose">Why Book Direct</a>
+            </div>
+            <a href="#book" class="btn-book-header">Book Now</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="property-header">
+            <span class="hero-label">Mid-Century Modern Retreat</span>
+            <h1>Desert Paradise</h1>
+            <p class="location">Palm Springs, California</p>
+            <p>Experience the perfect blend of mid-century charm and modern luxury in this fully renovated Palm Springs retreat. Light, bright, and stunning mountain views await.</p>
+            
+            <div class="property-stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Bedrooms</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Bathrooms</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Guests</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1,248</div>
+                    <div class="stat-label">Sq Ft</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Living Room">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Kitchen">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600" alt="Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600" alt="Bathroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600" alt="Patio">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" alt="Mountain View">
+            </div>
+        </div>
+
+        <div class="details-section">
+            <div class="amenities-box">
+                <h2>Amenities</h2>
+                <div class="amenities-list">
+                    <div class="amenity-item">
+                        <div class="amenity-icon">📶</div>
+                        <div class="amenity-text">High-Speed WiFi</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">❄️</div>
+                        <div class="amenity-text">Air Conditioning</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">🍳</div>
+                        <div class="amenity-text">Full Kitchen</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">🧺</div>
+                        <div class="amenity-text">Washer & Dryer</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">📺</div>
+                        <div class="amenity-text">Smart TV</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">🚗</div>
+                        <div class="amenity-text">Free Parking</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">🏖️</div>
+                        <div class="amenity-text">Patio & BBQ</div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">🏔️</div>
+                        <div class="amenity-text">Mountain Views</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rules-box">
+                <h2>House Rules</h2>
+                <ul>
+                    <li>Check-in: 4:00 PM</li>
+                    <li>Check-out: 11:00 AM</li>
+                    <li>Maximum 6 guests</li>
+                    <li>No smoking inside</li>
+                    <li>No parties or events</li>
+                    <li>Quiet hours: 10 PM - 8 AM</li>
+                    <li>Self check-in with keypad</li>
+                    <li>Flexible cancellation policy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="book-section" id="book">
+            <div class="book-section-content">
+                <h2>Ready to Book?</h2>
+                <p>Reserve your Palm Springs escape today</p>
+                
+                <!-- REPLACE THE HREF BELOW WITH YOUR AIRBNB OR GUESTY BOOKING LINK -->
+                <a href="https://www.airbnb.com/rooms/YOUR_LISTING_ID" target="_blank" class="btn-book-main">
+                    Book Now on Airbnb
+                </a>
+                
+                <div class="contact-info">
+                    <p>Questions? Email us at info@ashbyrentals.com</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Direct Coast to Coast Stays. <a href="rentals.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: underline;">View all rentals</a></p>
+        </div>
+    </footer>
+</body>
+</html>
